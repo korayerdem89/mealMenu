@@ -18,7 +18,7 @@ const Categories = () => {
         }
     }
 
-    const renderApi = ({ item }) =>
+    const renderCategories = ({ item }) =>
         <Text style={{ color: "black", backgroundColor: "#e0e0e0" }}>{item["strCategory"]}</Text>
 
 
@@ -31,7 +31,7 @@ const Categories = () => {
             <FlatList
                 keyExtractor={(item, _index) => item.idCategory}
                 data={data}
-                renderItem={renderApi}
+                renderItem={renderCategories}
             />
         </SafeAreaView>
     );
