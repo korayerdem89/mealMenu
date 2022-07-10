@@ -4,7 +4,7 @@ import axios from 'axios';
 import config from '../../config';
 import CategoryCard from '../Components/CategoryCard';
 import styles from './Categories.style';
-const Categories = () => {
+const Categories = ({ navigation }) => {
     const [text, setText] = useState("Koray");
     const [data, setData] = useState([]);
 
@@ -17,8 +17,13 @@ const Categories = () => {
         }
     }
 
+    const handleClick = id => {
+        console.log("hello");
+        navigation.navigate("Meals", {id});
+    };
+
     const renderCategories = ({ item }) =>
-        <CategoryCard data={item} />
+        <CategoryCard onSelect={() => handleClick(item.strCategory)} data={item} />
 
 
     useEffect(() => {

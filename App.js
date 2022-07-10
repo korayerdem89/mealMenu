@@ -14,6 +14,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerTitleAlign:"center", headerTintColor:"orange"}}>
         <Stack.Screen name="Categories" component={Categories} />
+        <Stack.Screen name="Meals" component={Meals} />
       </Stack.Navigator>
     </NavigationContainer>
   );
