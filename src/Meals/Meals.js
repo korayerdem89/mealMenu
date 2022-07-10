@@ -1,4 +1,4 @@
-import React, {useSate} from 'react';
+import React, {useState} from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
 
 
