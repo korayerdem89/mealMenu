@@ -3,11 +3,10 @@ import { View, Text, SafeAreaView, FlatList } from 'react-native';
 import axios from 'axios';
 import config from '../../config';
 import CategoryCard from '../Components/CategoryCard';
-
+import styles from './Categories.style';
 const Categories = () => {
     const [text, setText] = useState("Koray");
     const [data, setData] = useState([]);
-
 
     const fetchApi = async () => {
         try {
@@ -27,7 +26,7 @@ const Categories = () => {
     }, []);
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={styles.container}>
             <FlatList
                 keyExtractor={(item, _index) => item.idCategory}
                 data={data}
