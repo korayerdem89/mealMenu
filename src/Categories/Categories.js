@@ -4,37 +4,25 @@ import axios from 'axios';
 import config from '../../config';
 import CategoryCard from '../Components/CategoryCard';
 import styles from './Categories.style';
+import useFetch from '../hooks/useFetch/useFetch';
 const Categories = ({ navigation }) => {
-    const [text, setText] = useState("Koray");
-    const [data, setData] = useState([]);
+ const {data} = useFetch(config.API_MAIN_URL);
 
-    const fetchApi = async () => {
-        try {
-            const { data: responseData } = await axios.get(config.API_MAIN_URL);
-            setData(responseData.categories)
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
-
-    const handleClick = id => {
+    const handleClick = category => {
         console.log("hello");
-        navigation.navigate("Meals", {id});
+        navigation.navigate("Meals", {category});
     };
 
     const renderCategories = ({ item }) =>
         <CategoryCard onSelect={() => handleClick(item.strCategory)} data={item} />
 
-
-    useEffect(() => {
-        fetchApi();
-    }, []);
+ 
 
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
                 keyExtractor={(item, _index) => item.idCategory}
-                data={data}
+                data={data.categories}
                 renderItem={renderCategories}
             />
         </SafeAreaView>
