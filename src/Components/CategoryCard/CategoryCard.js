@@ -8,8 +8,8 @@ const CategoryCard = ({ data }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.categoryTitle}>{data.strCategory}</Text>
             <Image style={styles.image} source={{ uri: data.strCategoryThumb }} />
+            <Text style={styles.categoryTitle}>{data.strCategory}</Text>
       </View>
     )
 };

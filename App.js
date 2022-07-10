@@ -12,8 +12,8 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="CategoriesScreen" component={Categories} />
+      <Stack.Navigator screenOptions={{ headerTitleAlign:"center", headerTintColor:"orange"}}>
+        <Stack.Screen name="Categories" component={Categories} />
       </Stack.Navigator>
     </NavigationContainer>
   );
