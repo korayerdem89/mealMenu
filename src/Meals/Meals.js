@@ -1,20 +1,23 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { FlatList, SafeAreaView, Text } from 'react-native';
 import styles from './Meals.style';
-
-const Meals = ({route}) => {
-    const {category} = route.params; 
-   
-
+import useFetch
+    from '../hooks/useFetch/useFetch';
+import config from '../../config';
+const Meals = ({ route }) => {
+    const { category } = route.params;
+    const { data } = useFetch(`${config.API_MEALS_URL}${category}`);
+    const renderCategory = ({ item }) =>
+    <Text>{item.strMeal}</Text>
 
     return (
         <SafeAreaView style={styles.container}>
             <Text>hi</Text>
-            {/* <FlatList
-                keyExtractor={(item, _index) => item.idCategory}
-                data={data}
-                renderItem={renderCategories}
-            /> */}
+            <FlatList
+                keyExtractor={(item, _index) => item.idMeal}
+                data={data.meals}
+                renderItem={renderCategory}
+            />
         </SafeAreaView>
     );
 };
