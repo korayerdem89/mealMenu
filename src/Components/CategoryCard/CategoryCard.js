@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, SafeAreaView, Image } from 'react-native';
+import { TouchableWithoutFeedback, Text, Image, View } from 'react-native';
 import styles from './CategoryCard.style';
 
 const CategoryCard = ({ data }) => {
@@ -7,10 +7,12 @@ const CategoryCard = ({ data }) => {
 
 
     return (
-        <View style={styles.container}>
+        <TouchableWithoutFeedback >
+            <View style={styles.container}>
             <Image style={styles.image} source={{ uri: data.strCategoryThumb }} />
             <Text style={styles.categoryTitle}>{data.strCategory}</Text>
-      </View>
+            </View>
+        </TouchableWithoutFeedback>
     )
 };
 

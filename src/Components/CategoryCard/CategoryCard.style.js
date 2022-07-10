@@ -14,6 +14,6 @@ export default StyleSheet.create({
         borderBottomLeftRadius: 35,
         alignItems:"center"
     },
-    image: { width: 70, height: 60, resizeMode: "contain", marginLeft: 5 },
+    image: { width: 60, height: 60, resizeMode: "contain", marginLeft: 10 },
     categoryTitle: {marginLeft:10, fontSize:16}
 });
