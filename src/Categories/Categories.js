@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, SafeAreaView, FlatList } from 'react-native';
 import axios from 'axios';
 import config from '../../config';
-
+import CategoryCard from '../Components/CategoryCard';
 
 const Categories = () => {
     const [text, setText] = useState("Koray");
     const [data, setData] = useState([]);
-    console.log(data.map(item => item["idCategory"]));
+
 
     const fetchApi = async () => {
         try {
@@ -19,7 +19,7 @@ const Categories = () => {
     }
 
     const renderCategories = ({ item }) =>
-        <Text style={{ color: "black", backgroundColor: "#e0e0e0" }}>{item["strCategory"]}</Text>
+        <CategoryCard data={item} />
 
 
     useEffect(() => {
