@@ -4,17 +4,17 @@ import styles from './Meals.style';
 import useFetch
     from '../hooks/useFetch/useFetch';
 import config from '../../config';
-const Meals = ({ route }) => {
+import MealCard from '../Components/MealCard/MealCard';
+const Meals = ({ route, navigation }) => {
     const { category } = route.params;
     const { data } = useFetch(`${config.API_MEALS_URL}${category}`);
 
+    const handleClick = meal => {
+        navigation.navigate("Detail", {meal});
+    };
+
     const renderCategory = ({ item }) =>
-        <View style={styles.flatContainer}>
-            <Image style={styles.image} source={{ uri: item.strMealThumb }} />
-            <View style={styles.textContainer}>
-                <Text numberOfLines={1} style={styles.mealText}>{item.strMeal}</Text>
-            </View>
-        </View>
+        <MealCard  data={item} onSelect={() => handleClick(item.idMeal)} />
 
 
 

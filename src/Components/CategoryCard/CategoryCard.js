@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TouchableWithoutFeedback, Text, Image, View } from 'react-native';
 import styles from './CategoryCard.style';
 
