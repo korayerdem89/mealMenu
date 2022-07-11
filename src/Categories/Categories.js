@@ -9,7 +9,6 @@ const Categories = ({ navigation }) => {
  const {data} = useFetch(config.API_MAIN_URL);
 
     const handleClick = category => {
-        console.log("hello");
         navigation.navigate("Meals", {category});
     };
 
